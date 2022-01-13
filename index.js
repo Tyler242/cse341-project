@@ -26,8 +26,8 @@ const ta04Routes = require('./routes/ta04');
 
 app
   .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
+  .set('views', path.join(__dirname, 'views')) // allows us to use static files in the views folder
+  .set('view engine', 'ejs') // sets the template engine to be ejs files
   // For view engine as Pug
   //.set('view engine', 'pug') // For view engine as PUG.
   // For view engine as hbs (Handlebars)

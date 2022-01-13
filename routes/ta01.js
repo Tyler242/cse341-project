@@ -7,6 +7,7 @@ const router = express.Router();
 
 const activities = ['soccer', 'basketball', 'football', 'swimming'];
 router.get('/', (req, res, next) => {
+  // /ta01/activities
   // Request handling
   // CORE CHALLENGE 1 -
   // HTML page is written
