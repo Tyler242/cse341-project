@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <% include ../includes/header.ejs %>
-</head>
-
-<body>
-  <% include ../includes/nav.ejs %>
+  <head>
+    <% include ../includes/header.ejs %>
+  </head>
+  <style>
+    .container {
+      max-width: 1024px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .product {
+      text-align: center;
+      border: 1px solid black;
+      width: 300px;
+    }
+    .product img {
+      width: 50%;
+    }
+    form {
+      text-align: center;
+      margin: 30px auto;
+    }
+  </style>
+  <body>
+    <% include ../includes/nav.ejs %>
     <div class="jumbotron text-center">
       <div class="container">
-        <h1>
-          <%= title %>
-        </h1>
+        <h1><%= title %></h1>
         <p>This is the placeholder for Team Activity 03</p>
       </div>
     </div>
-    <div class="container">
-
+    <div>
+      <form action="/ta03" method="POST">
+        <label for="search">Search for Products</label>
+        <input type="text" name="search" />
+        <button type="submit">Search</button>
+      </form>
     </div>
-
-
-</body>
-
+    <div class="container">
+      <% for (product of products) { %>
+      <div class="product">
+        <img src="<%= product.imageUrl %>" alt="<%= product.description %>" />
+        <h3><%= product.name %></h3>
+        <p><%= product.price %></p>
+        <p><%= product.description %></p>
+        <p><%= product.tags %></p>
+      </div>
+      <% } %>
+    </div>
+  </body>
 </html>
